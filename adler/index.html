@@ -99,10 +99,15 @@ window.onload = function () {
 		document.getElementsByTagName('head')[0].appendChild(script);
 		window.zeigBilder = function(data) {
 		for (var i=0; i<data.photos.length; i++) {
-			console.log("Photo titel: ", i, data.photos [i] .photo_title);
-			L.marker([data.photos[i] .latitude, data.photos [i] .longitude]).addTo(adlerKarte);
-		}
-		}
+			console.log("Photo titel: ", i, data.photos [i].photo_title);
+			L.marker([data.photos[i].latitude, data.photos [i].longitude],{
+			  icon: L.icon({ 
+				iconUrl:data.photos[i].photo_file_url
+			  })
+			}).bindPopup("<h2>"+data.photos[i].photo_title+"</h2>")
+			.addTo(adlerKarte);
+		   }
+	}
 		
 };
 </script>
