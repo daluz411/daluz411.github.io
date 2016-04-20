@@ -98,21 +98,50 @@ window.onload = function () {
 		script.src = url;
 		document.getElementsByTagName('head')[0].appendChild(script);
 		window.zeigBilder = function(data) {
-		for (var i=0; i<data.photos.length; i++) {
-			console.log("Photo titel: ", i, data.photos [i].photo_title);
-			L.marker([data.photos[i].latitude, data.photos [i].longitude],{
-			  icon: L.icon({ 
-				iconUrl:data.photos[i].photo_file_url
-			  })
-			}).bindPopup("<h2>"+data.photos[i].photo_title+"</h2>"
-				+"<a href='"+data.photos[i].photo_url+"'>Link zum Bild</a>")
-			.addTo(adlerKarte);
-		   }
-	}
+			for (var i=0; i<data.photos.length; i++) {
+				console.log("Photo titel: ", i, data.photos [i].photo_title);
+				L.marker(
+					[data.photos[i].latitude, data.photos [i].longitude],
+					{
+						icon: L.icon({ 
+							iconUrl:data.photos[i].photo_file_url
+						})
+					}
+				).bindPopup("<h2>"+data.photos[i].photo_title+"</h2>"
+					+"<a href='"+data.photos[i].photo_url+"'>Link zum Bild</a>")
+				.addTo(adlerKarte);
+			}
+		}
+		var url = 'http://api.geonames.org/wikipediaBoundingBoxJSON?username=oeggl'
+			+'&west='+bounds.getWest()
+			+'&south='+bounds.getSouth()
+			+'&east='+bounds.getEast()
+			+'&north='+bounds.getNorth()
+			+'&lang=de'
+			+'&callback=zeigWikis';
+		var script = document.createElement("script");
+		script.src = url;
+		document.getElementsByTagName('head')[0].appendChild(script);
+		window.zeigWikis = function (data){
+			// marker add, popup add, link add
+			for (var i=0; i<data.geonames.length; i++) {
+				L.marker(
+					[data.geonames[i].lat, data.geonames[i].lng]//,
+					//{
+					//	icon: L.icon({ 
+					//		iconUrl:data.geonames[i].photo_file_url
+					//	})
+					//}
+				).bindPopup("<h2>"+data.geonames[i].title+"</h2>"
+					+"<a href='http://"+data.geonames[i].wikipediaUrl+"'>Link zum Wiki</a>")
+				.addTo(adlerKarte);
+			}
+		}
 		
+			
 };
 </script>
-
+wikipediaUrl:"de.wikipedia.org/wiki/Kufstein"
 <div id="adlerkarteDiv" style="width:900px;height:600px;"></div>	
 </body>
 </html>
