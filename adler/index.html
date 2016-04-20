@@ -97,8 +97,10 @@ window.onload = function () {
 		var script = document.createElement("script");
 		script.src = url;
 		document.getElementsByTagName('head')[0].appendChild(script);
-		window.zeigBilder = function(photos) {
-			console.log("Panoramio fertig geladen: ", photos);
+		window.zeigBilder = function(data) {
+		for (var i=0; i<data.photos.length; i++) {
+			console.log("Panoramio fertig geladen: ", data);
+		}
 		}
 		
 };
