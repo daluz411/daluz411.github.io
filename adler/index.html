@@ -126,12 +126,12 @@ window.onload = function () {
 			// marker add, popup add, link add
 			for (var i=0; i<data.geonames.length; i++) {
 				L.marker(
-					[data.geonames[i].lat, data.geonames[i].lng]//,
-					//{
-					//	icon: L.icon({ 
-					//		iconUrl:data.geonames[i].photo_file_url
-					//	})
-					//}
+					[data.geonames[i].lat, data.geonames[i].lng],
+					{
+						icon: L.icon({ 
+							iconUrl:"wikipedia.png", iconSize: [30, 20]
+						})
+					}
 				).bindPopup("<h2>"+data.geonames[i].title+"</h2>"
 					+"<a href='http://"+data.geonames[i].wikipediaUrl+"'>Link zum Wiki</a>")
 				.addTo(adlerKarte);
