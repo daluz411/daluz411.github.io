@@ -1,8 +1,8 @@
-*/ 
+/***
 	Adlerweg Skript
 	zeigt vier Etappen des Adlerwegs auf einer Leaflet-Karte mit Photos von Panoramio und Wikipedia Verlinkung
  	Hintergrund Karte: basemap.at
-*/
+***/
 
 window.onload = function() {
             var adlerKarte = L.map("adlerkarteDiv");
