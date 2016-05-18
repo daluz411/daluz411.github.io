@@ -1,0 +1,26 @@
+﻿add data
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: Zörgiebel <csat2908@uibk.ac.at>
+#
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   index.html
+#
+# Untracked files:
+#	Verwendungshinweis.pdf
+#	adler.css
+#	adler01.json
+#	adler01.txt
+#	adler02.json
+#	adler02.txt
+#	adler03.json
+#	adler03.txt
+#	adler04.json
+#	adler04.txt
+#	index
+#	index.txt
+#

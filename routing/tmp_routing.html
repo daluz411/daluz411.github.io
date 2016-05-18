@@ -1,0 +1,32 @@
+//Variable für den erstgeklickten Punkt
+			var first_point = null ;
+			
+			//Routing control hinzugefügen und minimieren
+			var routing_control = L.Routing.control ({
+				show : false
+				}).addTo(map);
+			
+			// Klicks auf Karte verarbeiten
+			map.on("click", function (event) {
+				if (first_point) {
+					// zeichnen der Route
+					console.log("2.Punkt", event);
+					
+					// Wegepunkte setzen und Routing control zeigen
+					routing_control.setWaypoints([
+						first_point,
+						event.latlng
+					]);
+					routing_control.show();
+					
+					// ersten Punkt wieder löschen
+					first_point = null;
+				} else {
+					// Routing control minimieren
+					routing_control.hide();
+					
+					//merken des ersten Punkts
+					first_point = event.latlng;
+					console.log("1.Punkt", event);
+				}
+			});

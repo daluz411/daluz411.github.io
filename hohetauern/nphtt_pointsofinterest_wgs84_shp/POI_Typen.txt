@@ -1,0 +1,27 @@
+    10-19: NP-Infrastruktur
+    10: NP-Zentrum/Ausstellung
+    11: NP-Infostelle/Infopunkt
+    12: NP-Themenweg (inkl. OeAV twl.; "LW die passen durch Verantwortung NP")
+    13: Natur-Schauplatz (analog neuer "Allgemeiner Information")
+    14: Forschungseinrichtungen
+    20-29: Infrastruktur Allgemein
+    20: Alpengasthof (nicht Hütte !) - in T nicht verwendet...
+    21: Parkplatz
+    22: Taxizubringer
+    23: Mautstraße
+    24: Bergbahn
+    25: Kutschenzubringer
+    26: Hütte m. ÜN
+    27: Hütte o. ÜN
+    28: Biwak / Selbstversorgerhütte
+    29: Lehrweg (NICHT NP)
+    30-40: Event-Punkte
+    30: Sehenswürdigkeit (Schloss, Burg)
+    31: Museum
+    32: Mountainbike
+    33: Wasserfall
+    35: Bergwerk
+    36: Mühle
+    37: Aussichtsplattform
+    40-50: TVB etc
+    40: TVB Infobüro

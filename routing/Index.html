@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Routing mit der Leaflet Routing Machine - interaktiv</title>
+    <link rel="stylesheet" href="js/leaflet/leaflet.css" />
+    <script src="js/leaflet/leaflet.js"></script>
+
+    <link rel="stylesheet" href="js/plugins/routing-machine/leaflet-routing-machine.css" />
+    <script src="js/plugins/routing-machine/leaflet-routing-machine.min.js"></script>
+    <script src="nphtt_pois.geojson.js"></script>
+	
+	<script>
+        window.onload = function () {
+            var map = L.map('routingmap', {
+                layers : [
+                    L.tileLayer("http://{s}.wien.gv.at/basemap/geolandbasemap/normal/google3857/{z}/{y}/{x}.png", {
+                        subdomains : ['maps', 'maps1', 'maps2', 'maps3', 'maps4'],
+                        attribution : 'Datenquelle: <a href="http://www.basemap.at/">basemap.at</a>'
+                    })
+                ],
+                center : [47.26, 11.38],
+                zoom : 10
+            });
+
+            L.control.scale({
+                'imperial': false
+            }).addTo(map);
+			
+			var pois =L.geoJson(window.POIS, {
+			}).addTo(map);
+			
+			map.fitBounds(pois.getBounds());
+						
+			//console.log(window.POIS);
+			
+        };
+
+    </script>
+</head>
+<body>
+    <h1>Routing mit der Leaflet Routing Machine - interaktiv</h1>
+    <h3>Innsbruck - Matrei in Osttirol</h3>
+    <div id="routingmap" style='width:900px;height:600px;'></div>
+    <h3>Links</h3>
+    <ul>
+        <li><a href="http://www.liedman.net/leaflet-routing-machine/">Leaflet Routing Machine</a></li>
+        <li><a href="http://project-osrm.org/">OSRM - Open source routing engine</a></li>
+    </ul>
+</body>
+</html>
