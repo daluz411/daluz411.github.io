@@ -21,6 +21,35 @@
 	
     <script>
         window.onload = function () {
+		 
+		 // Legendenobjekt mit Bezeichnungen nach Typnummern
+        var legendLabels = {
+            10 : 'NP-Zentrum / Ausstellung',
+            11 : 'NP-Infostelle / Infopunkt',
+            12 : 'NP-Themenweg',
+            13 : 'Natur-Schauplatz',
+            14 : 'Forschungseinrichtung',
+            20 : 'Alpengasthof',
+            21 : 'Parkplatz',
+            22 : 'Taxizubringer',
+            23 : 'Mautstraße',
+            24 : 'Bergbahn',
+            25 : 'Kutschenzubringer',
+            26 : 'Hütte mit Übernachtung',
+            27 : 'Hütte ohne Übernachtung',
+            28 : 'Biwak / Selbstversorgerhütte',
+            29 : 'Lehrweg (nicht NP)',
+            30 : 'Sehenswürdigkeit (Schloss, Burg)',
+            31 : 'Museum',
+            32 : 'Mountainbike',
+            33 : 'Wasserfall',
+            34 : 'Wildpark',
+            35 : 'Bergwerk',
+            36 : 'Mühle',
+            37 : 'Aussichtsplattform',
+            40 : 'TVB Infobüro',
+        };
+
             var map = L.map('routingmap', {
                 layers : [
                     L.tileLayer("http://{s}.wien.gv.at/basemap/geolandbasemap/normal/google3857/{z}/{y}/{x}.png", {
@@ -71,7 +100,14 @@
 			
 			map.fitBounds(pois.getBounds());
 
-			//console.log(window.POIS);
+			//Legende eintragen
+			legendenDIV = document.getElementById("legende");
+			for(typ in legendLabels) {
+				console.log(typ,legendLabels[typ]);
+				legendenDIV.innerHTML += '<img src="icons/nphtt_' + typ
+				+ '.png">' + legendLabels[typ] +'<br>';	
+				//<img src="icons/nphtt_10.png"> NP-Zentrum / Ausstellung<br>
+			}
 		};
 
     </script>
@@ -79,7 +115,8 @@
 <body>
     <h1>Routing mit der Leaflet Routing Machine - interaktiv</h1>
     <h3>Innsbruck - Matrei in Osttirol</h3>
-    <div id="routingmap" style='width:900px;height:600px;'></div>
+    <div id="legende" style="float:right;"></div>
+	<div id="routingmap" style='width:900px;height:600px;'></div>
     <h3>Links</h3>
     <ul>
         <li><a href="http://www.liedman.net/leaflet-routing-machine/">Leaflet Routing Machine</a></li>
