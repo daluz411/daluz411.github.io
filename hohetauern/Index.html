@@ -53,8 +53,19 @@
 						"m)";
 						}
 					layer.bindPopup(description);
+				},			
+				pointToLayer : function (feature, latlng) {
+					return L.marker (latlng, {
+						icon: L.icon({				
+						iconUrl: 'icons/nphtt_' + feature.properties.POI_TYP 
+						+ '.png'
+						}),
+						iconSize: [36, 36],
+						iconAnchor: [18, 18],
+						popupAnchor: [0, -18]
+					});
 				}
-			}).addTo(markers);
+			}).addTo(map);
 			
 			
 			
